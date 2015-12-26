@@ -1,5 +1,6 @@
 import re
 import random
+import wikipedia
 from brain import important
 from brain import knowledge
 
@@ -49,7 +50,15 @@ def iterating(inputWords):
     if highest == 0:
         inputWords = ' '.join(inputWords)
         if " who " and " is " in inputWords:
-            print "I know things about stuff. People.. not that much."
+            inputWords = re.sub("who", "", inputWords)
+            inputWords = inputWords.replace(" is ", "")
+            print inputWords
+            try:
+                answer = wikipedia.summary(inputWords, sentences=1)
+            except:
+                print "I know things about stuff. People.. not that much." 
+            else:
+                print answer.rstrip() 
         else:
             unknown = []
             unknown.append("I'm not really sure what you're talking about. *Walks away slowly*")
