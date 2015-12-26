@@ -1,0 +1,4 @@
+!!! cpanel change PHP version : WHM -> EasyApache -> Recompile
+cpanel shell disabled : WHM -> Edit Reseller Nameservers and Privileges
+server1 ssh port : The SSH port for Tsohost is 22.
+server111 ssh port : The port for SSH on Vidahost is 111.
