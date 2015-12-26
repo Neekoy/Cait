@@ -29,7 +29,7 @@ def iterating(inputWords):
             for error, answer in entry.iteritems():
                 totalMatches = 0
                 for searchWord in inputWords:
-                    matches = len(re.findall(searchWord, error))
+                    matches = len(re.findall(" {0} ".format(searchWord), error))
                     totalMatches += matches
                 hits.update({totalMatches:answer})
 
@@ -41,14 +41,14 @@ def iterating(inputWords):
     for key, value in knowledge.iteritems():
         totalMatches = 0
         for searchWord in inputWords:
-            matches = len(re.findall(searchWord, key))
+            matches = len(re.findall(" {0} ".format(searchWord), key))
             totalMatches += matches
         hits.update({totalMatches:value}) 
     highest = max(hits.keys(), key=int)
 
     if highest == 0:
         inputWords = ' '.join(inputWords)
-        if "who is" in inputWords:
+        if " who " and " is " in inputWords:
             print "I know things about stuff. People.. not that much."
         else:
             unknown = []
