@@ -11,7 +11,7 @@ for i in range (0, len(content)):
     if '!!!' in addon[0]:
        important[addon[0]] = addon[1]
     else:
-       knowledge.update({addon[0]:addon[1]})
+       knowledge.update({" {0} ".format(addon[0]):" {0} ".format(addon[1])})
 
 print knowledge
 print important

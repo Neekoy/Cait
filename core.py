@@ -3,13 +3,14 @@ import random
 import wikipedia
 from brain import important
 from brain import knowledge
+from webhosting import webhosting
 
 def answers(inputWords, outputAnswer):
     inputWords = ' '.join(inputWords)
     addonStart = ""
     if 'you know' in inputWords:
         addonStart = "Sure I do." 
-    elif 'don\'t know' in inputWords:
+    elif 'you don\'t know' in inputWords:
         addonStart = "Or do I?" 
     elif 'tell me' in inputWords:
         addonStart = "Sure."
@@ -24,8 +25,17 @@ def iterating(inputWords):
 
     hits = {}
 
+    hostingCheck = ' '.join(inputWords)
+
+    if "this domain" in hostingCheck:
+        domainName = webhosting(hostingCheck)        
+        if domainName != None:
+            print "The domain name you mentioned is {0}".format(domainName)
+        else:
+            print "I can't seem to find a domain name in what you said."
+        return
+
     if "error" in inputWords:
-        inputWords = ' '.join(inputWords)
         for entry in important:
             for error, answer in entry.iteritems():
                 totalMatches = 0
@@ -44,14 +54,15 @@ def iterating(inputWords):
         for searchWord in inputWords:
             matches = len(re.findall(" {0} ".format(searchWord), key))
             totalMatches += matches
+            print searchWord
+#DEBUG        print "KEY: {0} MATCHES: {1}".format(key, totalMatches)
         hits.update({totalMatches:value}) 
     highest = max(hits.keys(), key=int)
 
     if highest == 0:
-        inputWords = ' '.join(inputWords)
         if " who " and " is " in inputWords:
             inputWords = re.sub("who", "", inputWords)
-            inputWords = inputWords.replace(" is ", "")
+            inputWords = inputWords.replace("is", "")
             print inputWords
             try:
                 answer = wikipedia.summary(inputWords, sentences=1)
