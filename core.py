@@ -23,11 +23,13 @@ def answers(inputWords, outputAnswer):
 
 def iterating(inputWords):
 
+#DEBUG    print "IMPORTANT STUFF: {0}".format(important)
+
     hits = {}
 
     hostingCheck = ' '.join(inputWords)
 
-    if "this domain" in hostingCheck:
+    if "this domain" or "the domain" in hostingCheck:
         domainName = webhosting(hostingCheck)        
         if domainName != None:
             print "The domain name you mentioned is {0}".format(domainName)
@@ -54,7 +56,7 @@ def iterating(inputWords):
         for searchWord in inputWords:
             matches = len(re.findall(" {0} ".format(searchWord), key))
             totalMatches += matches
-            print searchWord
+#DEBUG            print searchWord
 #DEBUG        print "KEY: {0} MATCHES: {1}".format(key, totalMatches)
         hits.update({totalMatches:value}) 
     highest = max(hits.keys(), key=int)

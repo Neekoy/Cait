@@ -1,4 +1,7 @@
-!!! cpanel change PHP version : WHM -> EasyApache -> Recompile
+!!!error cpanel change PHP version : WHM -> EasyApache -> Recompile
 cpanel shell disabled : WHM -> Edit Reseller Nameservers and Privileges
-server1 ssh port : The SSH port for Tsohost is 22.
-server111 ssh port : The port for SSH on Vidahost is 111.
+tsohost ssh port : The SSH port for Tsohost is 22.
+vidahost ssh port : The port for SSH on Vidahost is 111.
+plesk control panel port : The Plesk control panel port is 8443.
+link to nagios url : The login URL for Nagios is http://lala.com.
+Cloud login url : The login URL for the Cloud is https://control.host.com/.
