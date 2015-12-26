@@ -1,5 +1,4 @@
-# Cait
-Cataloguing Artificial Intelligence
+# Cait - Cataloguing Artificial InTelligence v0.1
 
 To do:
 
