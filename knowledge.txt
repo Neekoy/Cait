@@ -5,3 +5,4 @@ vidahost ssh port : The port for SSH on Vidahost is 111.
 plesk control panel port : The Plesk control panel port is 8443.
 link to nagios url : The login URL for Nagios is http://lala.com.
 Cloud login url : The login URL for the Cloud is https://control.host.com/.
+when is adrian at work : His next shift starts at 18pm tomorrow.
